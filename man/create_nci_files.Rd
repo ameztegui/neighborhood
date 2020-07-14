@@ -2,7 +2,7 @@
 % Please edit documentation in R/create_nci_files.R
 \name{create_nci_files}
 \alias{create_nci_files}
-\title{get_neighbours}
+\title{create_nci_files}
 \usage{
 create_nci_files(df, plot_ID, var)
 }

@@ -1,7 +1,7 @@
 
 #' Title
 #'
-#' @title get_neighbours
+#' @title create_nci_files
 #'
 #' @description Function to compute the RDPI (Relative Distance Plasticity Index,
 #' Valladares et al, (2006) Quantitative estimation of phenotypic plasticity:
@@ -26,7 +26,7 @@ create_nci_files <- function (df, plot_ID, var) {
     create_file <- function (df_split, var) {
         file <- pivot_wider(df_split,
                             id_cols = ID_target,
-                            names_from = n_neighbour,
+                            names_from = n_neighbor,
                             values_from = {{var}})[,-1]
         file[row(file) == col(file)] <- NA
         file
