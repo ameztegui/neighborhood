@@ -1,0 +1,12 @@
+To reference `neighborhood` in publications, please cite the following:
+
+Aitor Ameztegui (2020) neighborhood: An R package to compute several functions within the neighborhood theory of forest dynamics. GitHub repository, https://github.com/ameztegui/neighborhood
+
+@misc{Ameztegui2020,
+  author = {Ameztegui, A.},
+  title = neighborhood
+  year = {2020},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  howpublished = {\url{https://github.com/ameztegui/neighborhood}}
+}
