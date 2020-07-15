@@ -20,7 +20,6 @@
 #' y <- rnorm(length(plot), 0, 5)
 #' data <- data.frame(plot, sps, dbh, x, y)
 #' neighbors <- get_neighbors(data, plot)
-
 #'
 #'
 get_neighbors <- function (df, plot_ID) {
