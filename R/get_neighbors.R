@@ -23,9 +23,9 @@
 #' dbh <- rnorm(length(plot), 15, 5)
 #' x <- rnorm(length(plot), 0, 5)     # x coordinates of the tree
 #' y <- rnorm(length(plot), 0, 5)     # y coordinates of the tree
-#' data <- data.frame(plot, sps, dbh, x, y)
+#' tree_data <- data.frame(plot, sps, dbh, x, y)
 #'
-#' neighbors <- get_neighbors(data, plot)
+#' neighbors <- get_neighbors(tree_data, plot)
 #'
 #'
 get_neighbors <- function (df, plot_ID) {
