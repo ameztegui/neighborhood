@@ -1,6 +1,6 @@
 Package: neighborhood
 Type: A package 
-Title: Functions for the neighborhood theory of forest dynamics
+Title: An R package to determine the neighborhood competitive environment of trees
 Version: 0.1.0
 Author: Aitor Ameztegui - Universitat de Lleida
 Maintainer: Aitor Ameztegui <aitor.ameztegui@udl.cat>
