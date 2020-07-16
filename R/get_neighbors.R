@@ -32,7 +32,8 @@ get_neighbors <- function (df, plot_ID) {
                            str_pad(n, 3, pad = 0)))
 
 
-    neighbors <- full_join(targets, targets, by = c("zzz", "plot"),
+    neighbors <- full_join(targets, targets, by = c("zzz",
+                                                    quo_name(enquo(plot_ID))),
                            suffix = c("_target", "_neighbor")) %>%
         select(-zzz) %>%
         mutate(dist=sqrt((x_neighbor - x_target)^2 +
