@@ -1,4 +1,4 @@
-# Plasticity
+# neighborhood
 
 An R package to define and characterize neighborhoods and estimate their effects on forest dynamics. The neighborhood theory of forest dynamics establishes that neighborhood effects
 (i.e. spatial explicit processes such as seed dispersal, shading, facilitation, competition) operate at small spatial extents of the individual tree and its neighbors but play a central role in forest dynamics by contributing to patch formation at stand scales and dynamics of the landscape.
