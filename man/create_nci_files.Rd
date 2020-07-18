@@ -7,21 +7,35 @@
 create_nci_files(df, plot_ID, var)
 }
 \arguments{
-\item{var}{}
+\item{df}{the dataframe containing information about the target trees and their neighbors. It can be provided
+by the users or obtained using the `get_neighbors` function}
+
+\item{plot_ID}{optional. Variable that identifies the plots, or experimental units, within which
+the neighbors will be considered. This information is used to split the calculations per plot, and the results
+are merged back into a single data frame.}
+
+\item{var}{The variable that we want to extract from the neighbors. It can be either a numeric, logical or
+character variable.}
 }
 \value{
-
+a data frame containing as many rows as target trees. Each row will contain as many values (columns)
+as neighbors has the corresponding target tree. Cells contain values of the variable "var" for each neighbor tree, and
+missing values are coded as NA
 }
 \description{
-Function to compute the RDPI (Relative Distance Plasticity Index,
-Valladares et al, (2006) Quantitative estimation of phenotypic plasticity:
- bridging the gap between the evolutionary concept and its ecological applications,
- Journal of Ecology, 94(6):1103-1116.
+function to create the files needed to estimate NCI-growth euqations using
+the anneal function of the likelihood package.
 }
 \details{
-Title
+create_nci_files
 }
 \examples{
+
+data(neighbors)
+
+dbhs <- create_nci_files(neighbors, plot, dbh_neighbor)
+sps <- create_nci_files(neighbors, plot, sps_neighbour)
+distances <- create_nci_files(neighbors, plot, dist)
 
 
 }

@@ -1,16 +1,16 @@
-#' Production and farm value of maple products in Canada
+#' Forest inventory data in Pyrenean forests
 #'
-#' @source Statistics Canada. Table 001-0008 - Production and farm value of
-#'  maple products, annual. \url{http://www5.statcan.gc.ca/cansim/}
+#' @source Aitor Ameztegui
 #' @format A data frame with columns:
 #' \describe{
-#'  \item{Year}{A value between 1924 and 2015.}
-#'  \item{Syrup}{Maple products expressed as syrup, total in thousands of gallons.}
-#'  \item{CAD}{Gross value of maple products in thousands of Canadian dollars.}
-#'  \item{Region}{Postal code abbreviation for territory or province.}
+#'  \item{plot}{Plot identifier}
+#'  \item{sps}{Tree species, with 3 possible values: ABAL, PINI or PISY}
+#'  \item{dbh}{Tree diameter(cm).}
+#'  \item{x}{x coordinates of the tree within the plot, as measured from the plot center (m).}
+#'  \item{y}{y coordinates of the tree within the plot, as measured from the plot center (m).}
 #' }
 #' @examples
 #' \dontrun{
-#'  maple
+#'  tree_data
 #' }
-"maple"
+"tree_data"
