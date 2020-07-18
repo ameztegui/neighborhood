@@ -1,0 +1,24 @@
+#' Forest inventory data in Pyrenean forests
+#'
+#' @source Aitor Ameztegui
+#' @format A data frame with columns:
+#' \describe{
+#'  \item{plot}{Plot identifier}
+#'  \item{sps_target}{Target tree species, with 3 possible values: ABAL, PINI or PISY}
+#'  \item{dbh_target}{Target tree diameter(cm).}
+#'  \item{x_target}{x coordinates of the target tree within the plot, as measured from the plot center (m).}
+#'  \item{y_target}{y coordinates of the target tree within the plot, as measured from the plot center (m).}
+#'  \item{n_target}{Correlative number identifying target tree position within the plot.}
+#'  \item{ID_target}{Unique identifier for target trees}
+#'  \item{sps_neighbor}{Neighbor tree species, with 3 possible values: ABAL, PINI or PISY}
+#'  \item{dbh_neighbor}{Neighbor tree diameter(cm).}
+#'  \item{x_neighbor}{x coordinates of the neighbor tree within the plot, as measured from the plot center (m).}
+#'  \item{y_neighbor}{y coordinates of the neighbor tree within the plot, as measured from the plot center (m).}
+#'  \item{n_neighbor}{Correlative number identifying neighbor position within the plot.}
+#'  \item{ID_neighbor}{Unique identifier for neighbor trees}
+#' }
+#' @examples
+#' \dontrun{
+#'  neighbors
+#' }
+"neighbors"

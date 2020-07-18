@@ -22,13 +22,7 @@
 #' the "x" and "y" coordinates.
 #'
 #' @examples
-#' plot <- c(rep(1:2, 9), rep(3:6, 14), rep(7,6))
-#' sps_pool <- c("PINI", "PISY", "ABAL")    # the pool of species
-#' sps <- sample(sps_pool, length(plot), replace = T)
-#' dbh <- rnorm(length(plot), 15, 5)
-#' x <- rnorm(length(plot), 0, 5)     # x coordinates of the tree
-#' y <- rnorm(length(plot), 0, 5)     # y coordinates of the tree
-#' tree_data <- data.frame(plot, sps, dbh, x, y)
+#' data(tree_data)
 #'
 #' neighbors <- get_neighbors(tree_data, plot)
 #'
