@@ -4,26 +4,37 @@
 \alias{create_nci_files}
 \title{create_nci_files}
 \usage{
-create_nci_files(df, plot_ID, var)
+create_nci_files(df, dbh, sp, x, y, plot_ID, self_del = T)
 }
 \arguments{
-\item{df}{the dataframe containing information about the target trees and their neighbors. It can be provided
-by the users or obtained using the `get_neighbors` function}
+\item{df}{the data frame containing information about the target trees.}
+
+\item{dbh}{variable in `df` that contains the diameter of the trees.}
+
+\item{sp}{variable in `df` that contains the specific identity of trees}
+
+\item{x}{variable in `df` that contains the X coordinate of the trees. Coordinates can be referred to any reference point (typically
+they will refer to either one of the plot corners or the plot center), but all of them must be referred to the same point to allow calculating distances
+between trees.}
+
+\item{y}{variable in `df` that contains the Y coordinate of the trees.  Coordinates can be referred to any reference point (typically
+they will refer to either one of the plot corners or the plot center), but all of them must be referred to the same point to allow calculating distances
+between trees.}
 
 \item{plot_ID}{optional. Variable that identifies the plots, or experimental units, within which
 the neighbors will be considered. This information is used to split the calculations per plot, and the results
-are merged back into a single data frame.}
+are merged back into a single data frame. A tree `b` will not be considered as a neighbor of tree `a` unless they belong to the same
+`plot_ID`. If this argument is missing, all trees in `df` will be considered both targets and neighbors.}
 
-\item{var}{The variable that we want to extract from the neighbors. It can be either a numeric, logical or
-character variable.}
+\item{self_del}{If `TRUE`, a tree is not included as a neighbor of itself. If `FALSE` the attribute if the target tree will be also
+included in the output as a neighbor of itself.}
 }
 \value{
-a data frame containing as many rows as target trees. Each row will contain as many values (columns)
-as neighbors has the corresponding target tree. Cells contain values of the variable "var" for each neighbor tree, and
-missing values are coded as NA
+a list containing three data frames with the values of dbh, species and distance to target tree for each neighbor tree.
+Each data frame will contain as many rows as target trees, and as many columns as the maximum number of neighbors per tree.Missing values are coded as `NA`.
 }
 \description{
-function to create the files needed to estimate NCI-growth euqations using
+function to create the files needed to estimate NCI-growth equations using
 the anneal function of the likelihood package.
 }
 \details{
@@ -31,11 +42,8 @@ create_nci_files
 }
 \examples{
 
-data(neighbors)
+data(tree_data)
 
-dbhs <- create_nci_files(neighbors, plot, dbh_neighbor)
-sps <- create_nci_files(neighbors, plot, sps_neighbour)
-distances <- create_nci_files(neighbors, plot, dist)
-
+files <- create_nci_files(tree_data, dbh = dbh, sp = sps,x = x, y = y, plot)
 
 }
