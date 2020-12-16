@@ -1,12 +1,12 @@
 Package: neighborhood
 Type: A package 
 Title: An R package to determine the neighborhood competitive environment of trees
-Version: 0.1.0
+Version: 0.2.0
 Author: Aitor Ameztegui - Universitat de Lleida
 Maintainer: Aitor Ameztegui <aitor.ameztegui@udl.cat>
 Description: Functions to define and characterize neighborhoods and estimate their effects on forest dynamics 
 License: MIT
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 Imports: dplyr, tidyr, likelihood

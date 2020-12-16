@@ -4,7 +4,18 @@
 \alias{create_nci_files}
 \title{create_nci_files}
 \usage{
-create_nci_files(df, dbh, sp, x, y, plot_ID, self_del = T)
+create_nci_files(
+  df,
+  dbh,
+  sp,
+  x,
+  y,
+  self_del = T,
+  ...,
+  min.target.dbh = NULL,
+  min.neighbor.dbh = NULL,
+  max.neighbor.radius = NULL
+)
 }
 \arguments{
 \item{df}{the data frame containing information about the target trees.}
@@ -19,15 +30,25 @@ between trees.}
 
 \item{y}{variable in `df` that contains the Y coordinate of the trees.  Coordinates can be referred to any reference point (typically
 they will refer to either one of the plot corners or the plot center), but all of them must be referred to the same point to allow calculating distances
-between trees.}
-
-\item{plot_ID}{optional. Variable that identifies the plots, or experimental units, within which
-the neighbors will be considered. This information is used to split the calculations per plot, and the results
-are merged back into a single data frame. A tree `b` will not be considered as a neighbor of tree `a` unless they belong to the same
-`plot_ID`. If this argument is missing, all trees in `df` will be considered both targets and neighbors.}
+between trees.
+#'}
 
 \item{self_del}{If `TRUE`, a tree is not included as a neighbor of itself. If `FALSE` the attribute if the target tree will be also
 included in the output as a neighbor of itself.}
+
+\item{...}{optional. Character or numeric variable that identifies the plots, or experimental units, within which
+the neighbors will be considered. This information is used to split the calculations per plot, and the results
+are merged back into a single data frame. A tree `b` will not be considered as a neighbor of tree `a` unless they belong to the same
+plot. If this argument is missing, all trees in `df` will be considered both targets and neighbors.}
+
+\item{min.target.dbh}{numeric The minimum dbh for a tree to be considered as a target. The function will only return neighbors of
+those target trees with dbh >= min.target.dbh. If not specified, all trees in `df` will be considered targets}
+
+\item{min.neighbor.dbh}{numeric The minimum dbh for a tree to be considered as a neighbor. All those neighbors of a given target with dbh
+above this threshold will be ignored. If not specified, all the neighbors of a given target will be considered}
+
+\item{max.neighbor.radius}{numeric maximum radius to search for neighbors. Only those neighbors located closer than this distance
+from a target tree will be considered their neighbors.}
 }
 \value{
 a list containing three data frames with the values of dbh, species and distance to target tree for each neighbor tree.
@@ -45,5 +66,11 @@ create_nci_files
 data(tree_data)
 
 files <- create_nci_files(tree_data, dbh = dbh, sp = sps,x = x, y = y, plot)
+
+
+# add some restrictions on target size and searching distance
+files2 <- create_nci_files(tree_data, dbh, sp, x, y, self_del = T, plot,
+min.target.dbh = 100, min.neighbor.dbh = 20, max.neighbor.radius = 10)
+
 
 }

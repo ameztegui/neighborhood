@@ -4,21 +4,21 @@
 \alias{get_neighbor_variables}
 \title{get_neighbor_variables}
 \usage{
-get_neighbor_variables(df, plot_ID, var, self_del = T)
+get_neighbor_variables(df, var, self_del = T, ...)
 }
 \arguments{
 \item{df}{the data frame containing information about the target trees.}
-
-\item{plot_ID}{optional. Variable that identifies the plots, or experimental units, within which
-the neighbors will be considered. This information is used to split the calculations per plot, and the results
-are merged back into a single data frame. A tree `b` will not be considered as a neighbor of tree `a` unless they belong to the same
-`plot_ID`. If this argument is missing, all trees in `df` will be considered both targets and neighbors.}
 
 \item{var}{The variable that we want to extract from the neighbors. It can be either a numeric, logical or
 character variable.}
 
 \item{self_del}{If `TRUE`, a tree is not included as a neighbor of itself. If `FALSE` the attribute if the target tree will be also
 included in the output as a neighbor of itself.}
+
+\item{...}{optional. Character or numeric variable that identifies the plots, or experimental units, within which
+the neighbors will be considered. This information is used to split the calculations per plot, and the results
+are merged back into a single data frame. A tree `b` will not be considered as a neighbor of tree `a` unless they belong to the same
+plot. If this argument is missing, all trees in `df` will be considered both targets and neighbors.}
 }
 \value{
 a data frame containing as many rows as target trees, and as many columns as the maximum number of neighbors per tree.
@@ -34,10 +34,10 @@ get_neighbor_variables
 
 data(tree_data)
 
-# Get dbhs of all the neighbirs
-dbhs <-get_neighbor_variables(tree_data, plot, dbh, self_del = T)
+# Get dbhs of all the neighbors, as if they were all in the same plot
+dbhs <-get_neighbor_variables(tree_data, var = dbh, self_del = F)
 
 # Get species of all the neighbors (incuding target tree as its own neighbor)
-species <-get_neighbor_variables(tree_data, plot, sps, self_del = F)
+species <-get_neighbor_variables(tree_data, var = sps, plot, self_del = T)
 
 }
